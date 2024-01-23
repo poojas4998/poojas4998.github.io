@@ -9,16 +9,16 @@ Web developer
 Show Contacts
 
 Email
-richard@example.com
+pooja.psavla@gmail.com
 
 Phone
 +1 (213) 352-2795
 
 Birthday
-June 23, 1982
+April 9, 1998
 
 Location
-Sacramento, California, USA
+Boston, Massachusetts, USA
 
 # navbar
 
