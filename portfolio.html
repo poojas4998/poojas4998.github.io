@@ -17,9 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Prism.js for syntax highlighting -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
   <!-- Google Tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
@@ -251,14 +251,12 @@
           <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
           <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-<!-- View Code Button -->
-<button onclick="openModal()" style="padding:10px 14px; font-size:14px; border:none; background:#4e4e4e; color:white; border-radius:6px;">View Code</button>
+<button onclick="openModal()" style="padding:10px 14px; background:#4e4e4e; color:white; border:none; border-radius:6px;">View Code</button>
 
-<!-- Code Modal -->
-<div id="codeModal">
-  <div class="modal-content">
-    <button onclick="closeModal()" class="close-button">Close</button>
-    <pre class="code-block"><code id="pythonCodeBlock" class="language-python"></code></pre>
+<div id="codeModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.85); z-index:1000; overflow:auto;">
+  <div style="max-width: 90%; margin: 5% auto; background: #1e1e1e; padding: 20px; border-radius: 8px; position: relative;">
+    <button onclick="closeModal()" style="position: absolute; top: 12px; right: 16px; background: crimson; color: white; border: none; font-size: 14px; padding: 6px 12px; border-radius: 4px;">Close</button>
+    <pre><code id="pythonCodeBlock" class="language-python" style="font-size:13px;"></code></pre>
   </div>
 </div>
         </section>
@@ -275,7 +273,7 @@
 
   <!-- Modal JS -->
 <script>
-  const code = `import seaborn as sns
+const pythonCode = `import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -312,16 +310,16 @@ for i, receptor in enumerate(df_melted["Chemokine_Receptor"].unique()[:20]):
 plt.subplots_adjust(hspace=0.4)
 plt.show()`;
 
-  function openModal() {
-    const codeBlock = document.getElementById("pythonCodeBlock");
-    codeBlock.textContent = code;
-    Prism.highlightElement(codeBlock);
-    document.getElementById("codeModal").style.display = "block";
-  }
+function openModal() {
+  const codeBlock = document.getElementById("pythonCodeBlock");
+  codeBlock.textContent = pythonCode;
+  Prism.highlightElement(codeBlock); // re-run Prism
+  document.getElementById("codeModal").style.display = "block";
+}
 
-  function closeModal() {
-    document.getElementById("codeModal").style.display = "none";
-  }
+function closeModal() {
+  document.getElementById("codeModal").style.display = "none";
+}
 </script>
 </body>
 
