@@ -251,14 +251,31 @@
           <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
           <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-          <!-- View Code Button -->
-          <button onclick="openModal()" style="padding:10px 14px; font-size:14px; border:none; background:#4e4e4e; color:white; border-radius:6px;">View Code</button>
+<!-- View Code Button -->
+<button onclick="openModal()" style="padding:10px 14px; font-size:14px; border:none; background:#4e4e4e; color:white; border-radius:6px;">View Code</button>
 
-          <!-- Code Modal -->
-          <div id="codeModal">
-            <div class="modal-content">
-              <button onclick="closeModal()" class="close-button">Close</button>
-              <pre class="code-block"><code class="language-python">import seaborn as sns
+<!-- Code Modal -->
+<div id="codeModal">
+  <div class="modal-content">
+    <button onclick="closeModal()" class="close-button">Close</button>
+    <pre class="code-block"><code id="pythonCodeBlock" class="language-python"></code></pre>
+  </div>
+</div>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+  <!-- Modal JS -->
+<script>
+  const code = `import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -293,31 +310,19 @@ for i, receptor in enumerate(df_melted["Chemokine_Receptor"].unique()[:20]):
     plt.grid(True, linestyle="--", alpha=0.6)
 
 plt.subplots_adjust(hspace=0.4)
-plt.show()</code></pre>
-            </div>
-          </div>
-        </section>
-      </article>
-    </div>
-  </main>
+plt.show()`;
 
-  <!-- Custom JS -->
-  <script src="./assets/js/script.js"></script>
+  function openModal() {
+    const codeBlock = document.getElementById("pythonCodeBlock");
+    codeBlock.textContent = code;
+    Prism.highlightElement(codeBlock);
+    document.getElementById("codeModal").style.display = "block";
+  }
 
-  <!-- Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-  <!-- Modal JS -->
-  <script>
-    function openModal() {
-      document.getElementById("codeModal").style.display = "block";
-    }
-
-    function closeModal() {
-      document.getElementById("codeModal").style.display = "none";
-    }
-  </script>
+  function closeModal() {
+    document.getElementById("codeModal").style.display = "none";
+  }
+</script>
 </body>
 
 </html>
