@@ -7,27 +7,6 @@
  * copyright 2022 @codewithsadee
  */
 
-/*-----------------------------------*\
-Pooja's Portfolio code for showing Examples of code.
-\*-----------------------------------*/
-
-.code-block {
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-radius: 8px;
-  overflow-x: auto;
-  margin-top: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-.code-block code {
-  font-family: 'Courier New', Courier, monospace;
-  display: block;
-  white-space: pre;
-  color: #2d2d2d;
-}
 
 
 /*-----------------------------------*\
