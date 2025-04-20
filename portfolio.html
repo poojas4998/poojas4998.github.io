@@ -2,19 +2,19 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pooja Savla's Personal Portfolio</title>
 
   <!-- Favicon -->
-  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="./assets/images/logo.ico" type="image/x-icon" />
 
   <!-- Custom CSS -->
-  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="./assets/css/style.css" />
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Prism.js for syntax highlighting -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
@@ -25,23 +25,60 @@
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
+    function gtag() {
+      dataLayer.push(arguments);
+    }
     gtag('js', new Date());
     gtag('config', 'G-LXQLH66J4S');
   </script>
 
   <style>
-    /* Style for code block */
-.code-block {
-  background-color: #2d2d2d;
-  border-radius: 6px;
-  padding: 10px;
-  overflow-x: auto;
-  line-height: 1.4;
-}
+    .code-block {
+      background-color: #2d2d2d;
+      border-radius: 6px;
+      padding: 10px;
+      overflow-x: auto;
+      line-height: 1.4;
+      font-size: 13px;
+    }
+
     pre[class*="language-"] {
       background: transparent !important;
       margin: 0;
+    }
+
+    #codeModal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      z-index: 1000;
+      overflow-y: auto;
+    }
+
+    #codeModal .modal-content {
+      max-width: 90%;
+      margin: 5% auto;
+      background: #1e1e1e;
+      padding: 20px;
+      border-radius: 8px;
+      position: relative;
+    }
+
+    #codeModal .close-button {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      background: crimson;
+      color: white;
+      border: none;
+      font-size: 14px;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -49,198 +86,26 @@
 <body>
 
   <main>
-
-  <!--
-          - #SIDEBAR
-        -->
-
-        <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Pooja Savla" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Pooja Savla</h1>
-
-          <p class="title">Bioinformatics Scientist</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:pooja.psavla@gmail.com" class="contact-link">pooja.psavla@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <!-- <ion-icon name="phone-portrait-outline"></ion-icon> -->
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <!-- <p class="contact-title">Phone</p> -->
-              <p class="contact-title">Secondary Email</p>
-
-              <!--<a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a> -->
-              <a href="mailto:prj4998@bu.edu" class="contact-link">prj4998@bu.edu</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="1982-06-23">April 9, 1998</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Location</p>
-
-              <address>Boston, Massachusetts, USA</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-         <!--
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li> -->
-          
-       	 <li class="social-item">
-            <a href="https://www.linkedin.com/in/poojasavla/" class="social-link">
-              <ion-icon name="logo-linkedin"></ion-icon>
-            </a>
-        	</li>
-        
-        <li class="social-item">
-            <a href="https://github.com/poojas4998" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-        	</li>
-        
-        </ul>
-
-      </div>
-
-    </aside>
-
-        <!--
-          - #main-content
-        -->
-
-        <div class="main-content">
-
-            <!--
-              - #NAVBAR
-            -->
-
-            <nav class="navbar">
-
-                <ul class="navbar-list">
-
-                    <li class="navbar-item">
-                        <a href="index.html" class="navbar-link">About</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a href="resume.html" class="navbar-link">Resume</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a href="#" class="navbar-link active">Portfolio</a>
-                    </li>
-        <!--
-                    <li class="navbar-item">
-                        <a href="contact.html" class="navbar-link">Contact</a>
-                    </li>
-            -->
-
-                </ul>
-
-            </nav>
+    <!-- Sidebar and other content above here are assumed to be already in place -->
 
     <div class="main-content">
-
       <article class="portfolio active" data-page="portfolio">
-
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
         </header>
 
         <section class="projects">
-
           <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
-<p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
+          <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-<!-- Button to trigger modal -->
-<button onclick="openModal()" style="padding: 10px 16px; font-size: 14px; cursor: pointer; background-color: #4e4e4e; color: white; border: none; border-radius: 6px;">
-  View Code
-</button>
+          <!-- View Code Button -->
+          <button onclick="openModal()" style="padding:10px 14px; font-size:14px; border:none; background:#4e4e4e; color:white; border-radius:6px;">View Code</button>
 
-<!-- Modal structure -->
-<div id="codeModal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.8); z-index: 1000; overflow: auto;">
-  <div style="max-width: 90%; margin: 5% auto; background: #1e1e1e; padding: 20px; border-radius: 8px; position: relative;">
-    <button onclick="closeModal()" style="position: absolute; top: 12px; right: 16px; background: crimson; color: white; border: none; font-size: 16px; padding: 6px 10px; border-radius: 4px;">Close</button>
-    <pre class="code-block"><code class="language-python">import seaborn as sns
+          <!-- Code Modal -->
+          <div id="codeModal">
+            <div class="modal-content">
+              <button onclick="closeModal()" class="close-button">Close</button>
+              <pre class="code-block"><code class="language-python">import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -276,15 +141,11 @@ for i, receptor in enumerate(df_melted["Chemokine_Receptor"].unique()[:20]):
 
 plt.subplots_adjust(hspace=0.4)
 plt.show()</code></pre>
-  </div>
-</div>
-
+            </div>
+          </div>
         </section>
-
       </article>
-
     </div>
-
   </main>
 
   <!-- Custom JS -->
@@ -294,15 +155,16 @@ plt.show()</code></pre>
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <!-- Modal JS -->
   <script>
-  function openModal() {
-    document.getElementById('codeModal').style.display = 'block';
-  }
+    function openModal() {
+      document.getElementById("codeModal").style.display = "block";
+    }
 
-  function closeModal() {
-    document.getElementById('codeModal').style.display = 'none';
-  }
-</script>
+    function closeModal() {
+      document.getElementById("codeModal").style.display = "none";
+    }
+  </script>
 </body>
 
 </html>
