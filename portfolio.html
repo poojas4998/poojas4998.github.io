@@ -408,31 +408,62 @@
           <h2 class="h2 article-title">Portfolio</h2>
         </header>
 
-        <section class="projects">
+<section class="projects">
 
-          <ul class="project-list">
+  <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
+  <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
-              <a href="#">
+  <figure class="project-img">
+    <img src="./assets/images/spatial-transcriptomics-icon.png" alt="Spatial transcriptomics icon" width="60">
+  </figure>
 
-                <figure class="project-img">
-                  <div class="project-item-icon-box">
-                    <ion-icon name="eye-outline"></ion-icon>
-                  </div>
+  <div class="code-block">
+    <pre><code class="language-python">
+import seaborn as sns
+import matplotlib.pyplot as plt
+import pandas as pd
 
-                  <img src="./assets/images/project-1.jpg" alt="finance" >
-                </figure>
+chemokine_receptors = ["Cd69","Itga1","Itgae","Cxcr6","Ly6c1","Ly6c2","Cd226"]
+chemokine_receptors = [gene.upper() for gene in chemokine_receptors]
 
-                <h3 class="project-title">Finance</h3>
+genes_in_dataset = [gene for gene in chemokine_receptors if gene in all_data_filtered_celltype.var_names]
+missing_genes = [gene for gene in chemokine_receptors if gene not in all_data_filtered_celltype.var_names]
 
-                <p class="project-category">Web development</p>
+print("Genes present in the dataset:", genes_in_dataset)
+print("Missing genes:", missing_genes)
 
-              </a>
-            </li>
+df = all_data_filtered_celltype.to_df()
+df['condition'] = all_data_filtered_celltype.obs['condition']
+df['celltype_minor'] = all_data_filtered_celltype.obs['celltype_minor']
 
-          </ul>
+df_receptors = df[genes_in_dataset + ['condition', 'celltype_minor']]
+df_receptors_melted = df_receptors.melt(id_vars=['condition', 'celltype_minor'],
+                                        value_vars=genes_in_dataset,
+                                        var_name='Chemokine_Receptor',
+                                        value_name='Expression')
 
-        </section>
+plt.figure(figsize=(50, 80))
+sns.set(style="whitegrid")
+unique_receptors = df_receptors_melted['Chemokine_Receptor'].unique()
+
+for i, receptor in enumerate(unique_receptors[:20]):
+    receptor_data = df_receptors_melted[df_receptors_melted['Chemokine_Receptor'] == receptor]
+    plt.subplot(10, 2, i + 1)
+    sns.violinplot(x="celltype_minor", y="Expression", hue="condition", data=receptor_data,
+                   palette="Set2", inner="quart", density_norm='width', linewidth=1.2, split=False)
+    plt.title(f"{receptor} Expression Across Cell Types", fontsize=18)
+    plt.xlabel('Cell Type', fontsize=14)
+    plt.ylabel('Expression', fontsize=14)
+    plt.xticks(rotation=45, ha='right', fontsize=12)
+    plt.yticks(fontsize=12)
+    plt.grid(True, linestyle='--', alpha=0.6)
+
+plt.subplots_adjust(hspace=0.4)
+plt.show()
+    </code></pre>
+  </div>
+
+</section>
 
       </article> 
       
