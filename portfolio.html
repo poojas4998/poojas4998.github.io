@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="UTF-8" />
-  <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pooja Savla's Personal Portfolio</title>
 
@@ -17,11 +16,11 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
   <!-- Prism.js for syntax highlighting -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 
-  <!-- Google Tag -->
+  <!-- Google Analytics Tag -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXQLH66J4S"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -84,162 +83,81 @@
 </head>
 
 <body>
-
   <main>
-    <!--
-          - #SIDEBAR
-        -->
-
-        <aside class="sidebar" data-sidebar>
-
+    <!-- Sidebar -->
+    <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
-
         <figure class="avatar-box">
           <img src="./assets/images/my-avatar.png" alt="Pooja Savla" width="80">
         </figure>
-
         <div class="info-content">
-          <h1 class="name" title="Richard hanrick">Pooja Savla</h1>
-
+          <h1 class="name">Pooja Savla</h1>
           <p class="title">Bioinformatics Scientist</p>
         </div>
-
         <button class="info_more-btn" data-sidebar-btn>
           <span>Show Contacts</span>
-
           <ion-icon name="chevron-down"></ion-icon>
         </button>
-
       </div>
 
       <div class="sidebar-info_more">
-
         <div class="separator"></div>
-
         <ul class="contacts-list">
-
           <li class="contact-item">
-
             <div class="icon-box">
               <ion-icon name="mail-outline"></ion-icon>
             </div>
-<div class="contact-info">
-  <p class="contact-title">Email</p>
-  <a href="mailto:pooja.psavla@gmail.com" class="contact-link" style="font-size: 9px;">pooja.psavla@gmail.com</a>
-</div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <!-- <ion-icon name="phone-portrait-outline"></ion-icon> -->
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
             <div class="contact-info">
-              <!-- <p class="contact-title">Phone</p> -->
-              <p class="contact-title">Secondary Email</p>
-
-              <!--<a href="tel:+12133522795" class="contact-link">+1 (213) 352-2795</a> -->
-              <a href="mailto:prj4998@bu.edu" class="contact-link">prj4998@bu.edu</a>
+              <p class="contact-title">Email</p>
+              <a href="mailto:pooja.psavla@gmail.com" class="contact-link" style="font-size: 9px;">pooja.psavla@gmail.com</a>
             </div>
-
           </li>
-
           <li class="contact-item">
-
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+            <div class="contact-info">
+              <p class="contact-title">Secondary Email</p>
+              <a href="mailto:prj4998@bu.edu" class="contact-link" style="font-size: 16px;">prj4998@bu.edu</a>
+            </div>
+          </li>
+          <li class="contact-item">
             <div class="icon-box">
               <ion-icon name="location-outline"></ion-icon>
             </div>
-
             <div class="contact-info">
               <p class="contact-title">Location</p>
-
               <address>Boston, Massachusetts, USA</address>
             </div>
-
           </li>
-
         </ul>
 
         <div class="separator"></div>
-
         <ul class="social-list">
-         <!--
           <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-facebook"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="#" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li> -->
-          
-       	 <li class="social-item">
             <a href="https://www.linkedin.com/in/poojasavla/" class="social-link">
               <ion-icon name="logo-linkedin"></ion-icon>
             </a>
-        	</li>
-        
-        <li class="social-item">
+          </li>
+          <li class="social-item">
             <a href="https://github.com/poojas4998" class="social-link">
               <ion-icon name="logo-github"></ion-icon>
             </a>
-        	</li>
-        
+          </li>
         </ul>
-
       </div>
-
     </aside>
 
-        <!--
-          - #main-content
-        -->
-
-        <div class="main-content">
-
-            <!--
-              - #NAVBAR
-            -->
-
-            <nav class="navbar">
-
-                <ul class="navbar-list">
-
-                    <li class="navbar-item">
-                        <a href="index.html" class="navbar-link">About</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a href="resume.html" class="navbar-link">Resume</a>
-                    </li>
-
-                    <li class="navbar-item">
-                        <a href="#" class="navbar-link active">Portfolio</a>
-                    </li>
-        <!--
-                    <li class="navbar-item">
-                        <a href="contact.html" class="navbar-link">Contact</a>
-                    </li>
-            -->
-
-                </ul>
-
-            </nav>
-
-
+    <!-- Main Content -->
     <div class="main-content">
+      <nav class="navbar">
+        <ul class="navbar-list">
+          <li class="navbar-item"><a href="index.html" class="navbar-link">About</a></li>
+          <li class="navbar-item"><a href="resume.html" class="navbar-link">Resume</a></li>
+          <li class="navbar-item"><a href="#" class="navbar-link active">Portfolio</a></li>
+        </ul>
+      </nav>
+
       <article class="portfolio active" data-page="portfolio">
         <header>
           <h2 class="h2 article-title">Portfolio</h2>
@@ -249,29 +167,22 @@
           <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
           <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-<button onclick="openModal()" style="padding:10px 14px; background:#4e4e4e; color:white; border:none; border-radius:6px;">View Code</button>
+          <button onclick="openModal()" style="padding:10px 14px; background:#4e4e4e; color:white; border:none; border-radius:6px;">View Code</button>
 
-<div id="codeModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background-color:rgba(0,0,0,0.85); z-index:1000; overflow:auto;">
-  <div style="max-width: 90%; margin: 5% auto; background: #1e1e1e; padding: 20px; border-radius: 8px; position: relative;">
-    <button onclick="closeModal()" style="position: absolute; top: 12px; right: 16px; background: crimson; color: white; border: none; font-size: 14px; padding: 6px 12px; border-radius: 4px;">Close</button>
-    <pre><code id="pythonCodeBlock" class="language-python" style="font-size:13px;"></code></pre>
-  </div>
-</div>
+          <div id="codeModal">
+            <div class="modal-content">
+              <button class="close-button" onclick="closeModal()">Close</button>
+              <pre><code id="pythonCodeBlock" class="language-python"></code></pre>
+            </div>
+          </div>
         </section>
       </article>
     </div>
   </main>
 
-  <!-- Custom JS -->
-  <script src="./assets/js/script.js"></script>
-
-  <!-- Ionicons -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
   <!-- Modal JS -->
-<script>
-const pythonCode = `import seaborn as sns
+  <script>
+    const pythonCode = `import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
 
@@ -285,7 +196,7 @@ df = all_data_filtered_celltype.to_df()
 df["condition"] = all_data_filtered_celltype.obs["condition"]
 df["celltype_minor"] = all_data_filtered_celltype.obs["celltype_minor"]
 
-df_receptors = df[genes_in_dataset + ["condition", "celltype_minor"]]
+df_receptors = df[genes_in_dataset.concat(["condition", "celltype_minor"])]
 df_melted = df_receptors.melt(id_vars=["condition", "celltype_minor"],
                               value_vars=genes_in_dataset,
                               var_name="Chemokine_Receptor",
@@ -308,17 +219,24 @@ for i, receptor in enumerate(df_melted["Chemokine_Receptor"].unique()[:20]):
 plt.subplots_adjust(hspace=0.4)
 plt.show()`;
 
-function openModal() {
-  const codeBlock = document.getElementById("pythonCodeBlock");
-  codeBlock.textContent = pythonCode;
-  Prism.highlightElement(codeBlock); // re-run Prism
-  document.getElementById("codeModal").style.display = "block";
-}
+    function openModal() {
+      const codeBlock = document.getElementById("pythonCodeBlock");
+      codeBlock.textContent = pythonCode;
+      Prism.highlightElement(codeBlock);
+      document.getElementById("codeModal").style.display = "block";
+    }
 
-function closeModal() {
-  document.getElementById("codeModal").style.display = "none";
-}
-</script>
+    function closeModal() {
+      document.getElementById("codeModal").style.display = "none";
+    }
+  </script>
+
+  <!-- Custom JS -->
+  <script src="./assets/js/script.js"></script>
+
+  <!-- Ionicons -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
