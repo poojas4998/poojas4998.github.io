@@ -32,15 +32,13 @@
 
   <style>
     /* Style for code block */
-    .code-block {
-      background-color: #2d2d2d;
-      border-radius: 8px;
-      padding: 16px;
-      margin-top: 20px;
-      overflow-x: auto;
-      font-size: 14px;
-      line-height: 1.6;
-    }
+.code-block {
+  background-color: #2d2d2d;
+  border-radius: 6px;
+  padding: 10px;
+  overflow-x: auto;
+  line-height: 1.4;
+}
     pre[class*="language-"] {
       background: transparent !important;
       margin: 0;
@@ -231,10 +229,18 @@
         <section class="projects">
 
           <h3 class="h3 project-title">Chemokine Receptor Expression Analysis</h3>
-          <p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
+<p class="project-category">Python · Data Visualization · Spatial Transcriptomics</p>
 
-          <div class="code-block">
-            <pre><code class="language-python">
+<!-- Button to trigger modal -->
+<button onclick="openModal()" style="padding: 10px 16px; font-size: 14px; cursor: pointer; background-color: #4e4e4e; color: white; border: none; border-radius: 6px;">
+  View Code
+</button>
+
+<!-- Modal structure -->
+<div id="codeModal" style="display:none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background-color: rgba(0,0,0,0.8); z-index: 1000; overflow: auto;">
+  <div style="max-width: 90%; margin: 5% auto; background: #1e1e1e; padding: 20px; border-radius: 8px; position: relative;">
+    <button onclick="closeModal()" style="position: absolute; top: 12px; right: 16px; background: crimson; color: white; border: none; font-size: 16px; padding: 6px 10px; border-radius: 4px;">Close</button>
+    <pre class="code-block" style="font-size: 12px;"><code class="language-python">
 import seaborn as sns
 import matplotlib.pyplot as plt
 import pandas as pd
@@ -245,39 +251,30 @@ chemokine_receptors = [gene.upper() for gene in chemokine_receptors]
 genes_in_dataset = [gene for gene in chemokine_receptors if gene in all_data_filtered_celltype.var_names]
 missing_genes = [gene for gene in chemokine_receptors if gene not in all_data_filtered_celltype.var_names]
 
-print("Genes present in the dataset:", genes_in_dataset)
-print("Missing genes:", missing_genes)
-
 df = all_data_filtered_celltype.to_df()
 df['condition'] = all_data_filtered_celltype.obs['condition']
 df['celltype_minor'] = all_data_filtered_celltype.obs['celltype_minor']
 
 df_receptors = df[genes_in_dataset + ['condition', 'celltype_minor']]
 df_receptors_melted = df_receptors.melt(id_vars=['condition', 'celltype_minor'],
-                                        value_vars=genes_in_dataset,
-                                        var_name='Chemokine_Receptor',
-                                        value_name='Expression')
+    value_vars=genes_in_dataset, var_name='Chemokine_Receptor', value_name='Expression')
 
 plt.figure(figsize=(50, 80))
 sns.set(style="whitegrid")
-unique_receptors = df_receptors_melted['Chemokine_Receptor'].unique()
-
-for i, receptor in enumerate(unique_receptors[:20]):
+for i, receptor in enumerate(df_receptors_melted['Chemokine_Receptor'].unique()[:20]):
     receptor_data = df_receptors_melted[df_receptors_melted['Chemokine_Receptor'] == receptor]
     plt.subplot(10, 2, i + 1)
     sns.violinplot(x="celltype_minor", y="Expression", hue="condition", data=receptor_data,
-                   palette="Set2", inner="quart", density_norm='width', linewidth=1.2, split=False)
+        palette="Set2", inner="quart", density_norm='width', linewidth=1.2, split=False)
     plt.title(f"{receptor} Expression Across Cell Types", fontsize=18)
-    plt.xlabel('Cell Type', fontsize=14)
-    plt.ylabel('Expression', fontsize=14)
-    plt.xticks(rotation=45, ha='right', fontsize=12)
-    plt.yticks(fontsize=12)
+    plt.xlabel('Cell Type'); plt.ylabel('Expression')
+    plt.xticks(rotation=45, ha='right'); plt.yticks(fontsize=12)
     plt.grid(True, linestyle='--', alpha=0.6)
-
 plt.subplots_adjust(hspace=0.4)
 plt.show()
-            </code></pre>
-          </div>
+    </code></pre>
+  </div>
+</div>
 
         </section>
 
@@ -294,6 +291,15 @@ plt.show()
   <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
+  <script>
+  function openModal() {
+    document.getElementById('codeModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('codeModal').style.display = 'none';
+  }
+</script>
 </body>
 
 </html>
